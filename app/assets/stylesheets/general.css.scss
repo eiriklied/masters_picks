@@ -7,14 +7,31 @@ html {
 }
 
 body {
-	font-family: Helvetica, Arial, sans-serif;
-	color: white;
+	font-family: Helvetica Neue, Arial, sans-serif;
+	color: #494949;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 #container {
 	margin: 40px auto;
 	width: 600px;
-	background: rgba(39, 39, 39, 0.8);
+	background: rgba(39, 39, 39, 0.9);
 	padding: 20px;
-	border-radius: 10px;
+	border-radius: 5px;
+}
+
+.score_box {
+	background-color: white;
+	padding: 20px;
+	border-radius: 5px;
+	margin-bottom: 10px;
 }

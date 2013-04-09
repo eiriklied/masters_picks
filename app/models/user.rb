@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   	score
   end
 
+  def ranking
+  	# calculate ranking based on all players scores
+  end
+
 end

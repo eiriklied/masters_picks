@@ -1,8 +1,10 @@
 <% @users.each do |user| %>
-	<h2><%= user.name %> - <%= user.score %> poeng</h2>
+	<div class="score_box">
+		<h2><%= user.name %> - <%= user.score %> poeng</h2>
 		<ul>
 		<% user.players.each do |player| %>
 			<li><%= player.position %>. <%= player.name %> - <%= player.score %> poeng</li>
 		<% end %>
 		</ul>
+	</div>
 <% end %>
