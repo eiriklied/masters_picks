@@ -5,10 +5,9 @@ class Player < ActiveRecord::Base
   attr_accessible :name
 
   def position
-    # html = Nokogiri::HTML(open("http://sports.yahoo.com/golf/pga/leaderboard/2012/15"))
-    # raw_position = html.xpath("//*[text()='#{name}']/ancestor::td[1]/preceding-sibling::td/text()").to_s
-    # position = raw_position.delete("T")
-    7
+    html = Nokogiri::HTML(open("http://www.majorschampionships.com/masters.html"))
+    raw_position = html.xpath("//*[text()='#{name}']/preceding-sibling::td/text()").to_s
+    raw_position.empty? ? '100' : raw_position.delete("T").strip
   end
 
   def score
@@ -28,6 +27,12 @@ class Player < ActiveRecord::Base
     else
       0
     end
+  end
+
+  private
+
+  def masters_name(name)
+    name.split[0][0] + ' ' + name.split[1]
   end
 
 end
