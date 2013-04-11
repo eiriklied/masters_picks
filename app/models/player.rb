@@ -1,12 +1,10 @@
 class Player < ActiveRecord::Base
 
   belongs_to :user
-  attr_accessible :name, :position
+  attr_accessible :name
 
-  def position
-    leaderboard = Leaderboard.new # problem: initiating a new leaderboard for every player, when they should all use the same leaderboard (per request)
-    @position ||= leaderboard.player_position(name)
-  end
+  attr_accessor :position
+
 
   def score
     case @position
