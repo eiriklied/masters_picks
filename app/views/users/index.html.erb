@@ -1,6 +1,7 @@
 <% @users.sort_by{|u| u.score.to_i}.reverse.each do |user| %>
 	<div class="score_box">
-		<h2><%= user.name %> - <%= user.score %> poeng</h2>
+		<h2><%= user.name %></h2>
+		<h3><%= user.score %> poeng</h3>
 		<ul>
 		<% user.players.sort_by{|p| p.position.to_i}.each do |player| %>
 			<li><%= player.position %>. <%= player.name %> - <%= player.score %> poeng</li>

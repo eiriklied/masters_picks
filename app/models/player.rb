@@ -1,17 +1,15 @@
 class Player < ActiveRecord::Base
-  require 'open-uri'
 
   belongs_to :user
-  attr_accessible :name
+  attr_accessible :name, :position
 
   def position
-    html = Nokogiri::HTML(open("http://www.majorschampionships.com/masters.html"))
-    raw_position = html.xpath("//*[text()='#{name}']/preceding-sibling::td/text()").to_s
-    raw_position.empty? ? '100' : raw_position.delete("T").strip
+    leaderboard = Leaderboard.new # problem: initiating a new leaderboard for every player, when they should all use the same leaderboard (per request)
+    @position ||= leaderboard.player_position(name)
   end
 
   def score
-    case position.to_i
+    case @position
     when 1
       100
     when 2
@@ -27,12 +25,6 @@ class Player < ActiveRecord::Base
     else
       0
     end
-  end
-
-  private
-
-  def masters_name(name)
-    name.split[0][0] + ' ' + name.split[1]
   end
 
 end

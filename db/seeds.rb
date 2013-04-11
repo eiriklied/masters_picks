@@ -38,3 +38,13 @@ lenn = User.create({name: 'Lenn Solheim', email: ''})
 ['Tiger Woods', 'Phil Mickelson', 'Bubba Watson', 'Adam Scott', 'Angel Cabrera', 'Brandt Snedeker', 'Louis Oosthuizen', 'Rickie Fowler', 'Lee Westwood', 'Ernie Els'].each do |player_name|
 	lenn.players.create({name: player_name})
 end
+
+joakim = User.create({name: 'Joakim Bjerke', email: ''})
+['Tiger Woods', 'Graeme McDowell', 'Rory McIlroy', 'Ian Poulter', 'Bubba Watson', 'Brandt Snedeker', 'Hunter Mahan', 'Martin Kaymer', 'Dustin Johnson', 'Peter Hanson'].each do |player_name|
+	joakim.players.create({name: player_name})
+end
+
+andreas = User.create({name: 'Andreas Forgaard', email: ''})
+['Tiger Woods', 'Phil Mickelson', 'Rory McIlroy', 'Lee Westwood', 'Nicolas Colsaerts', 'Bubba Watson', 'Sergio Garcia', 'Louis Oosthuizen', 'Jason Dufner', 'Peter Hanson'].each do |player_name|
+	andreas.players.create({name: player_name})
+end
