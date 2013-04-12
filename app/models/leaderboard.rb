@@ -10,7 +10,7 @@ class Leaderboard
 
 	def player_position(name)
 		raw_position = @html.xpath("//*[text()='#{name}']/ancestor::td[1]/ancestor::tr[1]/*[1]/text()").to_s
-		raw_position.empty? ? '--' : raw_position.scan(/\d+/)[0]
+		(raw_position.empty? ? '--' : raw_position.scan(/\d+/)[0]).to_i
 	end
 
 end
